@@ -1,3 +1,4 @@
+import type { FC } from 'react';
 import {
   ChakraProvider,
   defaultSystem,
@@ -17,7 +18,7 @@ import { FaPython, FaAws, FaDocker, FaGitAlt, FaGithub, FaEnvelope } from 'react
 import { SiGo, SiFastapi, SiGin } from 'react-icons/si';
 import { VscVscode } from 'react-icons/vsc';
 
-export const App = () => {
+export const App: FC = () => {
   return (
     <ChakraProvider value={defaultSystem}>
       <Box bg="#F4F3F0" color="gray.800" minH="100vh" py={8}>
@@ -27,7 +28,7 @@ export const App = () => {
             <Heading as="h1" size="md" fontWeight="normal">
               Yamada Taro - Web Engineer
             </Heading>
-            <HStack as="nav" spacing={6} fontSize="sm">
+            <HStack as="nav" gap={6} fontSize="sm">
               <Link href="#about">About</Link>
               <Link href="#skills">Skills</Link>
               <Link href="#works">Works</Link>
@@ -42,7 +43,7 @@ export const App = () => {
             id="about"
             bgImage="linear-gradient(rgba(244, 243, 240, 0.85), rgba(244, 243, 240, 0.85)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1200')"
             bgSize="cover"
-            bgPosition="center"
+            backgroundPosition="center"
             rounded="2xl"
             p={8}
             mb={8}
@@ -78,7 +79,7 @@ export const App = () => {
             <Heading as="h2" size="md" mb={8}>
               Skills
             </Heading>
-            <SimpleGrid columns={{ base: 2, md: 4 }} spacingY={8} spacingX={4} mb={8}>
+            <SimpleGrid columns={{ base: 2, md: 4 }} rowGap={8} columnGap={4} mb={8}>
               <HStack>
                 <Box as={FaPython} boxSize={6} color="blue.500" />
                 <Text fontSize="sm">python</Text>
@@ -141,7 +142,7 @@ export const App = () => {
               <Heading as="h3" size="sm" fontWeight="normal" mb={4}>
                 Personal Projects
               </Heading>
-              <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6}>
+              <SimpleGrid columns={{ base: 1, md: 3 }} gap={6}>
                 {/* Project Card 1 */}
                 <Box borderWidth="1px" rounded="lg" overflow="hidden">
                   <Image src="https://picsum.photos/seed/proj1/300/150" alt="UI Sketch" w="100%" />
@@ -153,7 +154,7 @@ export const App = () => {
                       成果物の説明が入ります...
                     </Text>
                     <Flex justify="space-between" align="center">
-                      <HStack spacing={2}>
+                      <HStack gap={2}>
                         <Box
                           as="span"
                           bg="gray.100"
@@ -196,7 +197,7 @@ export const App = () => {
                       成果物の説明が入ります...
                     </Text>
                     <Flex justify="space-between" align="center">
-                      <HStack spacing={2}>
+                      <HStack gap={2}>
                         <Box
                           as="span"
                           bg="gray.100"
@@ -255,7 +256,7 @@ export const App = () => {
                       成果物の説明が入ります...
                     </Text>
                     <Flex justify="space-between" align="center">
-                      <HStack spacing={2}>
+                      <HStack gap={2}>
                         <Box
                           as="span"
                           bg="gray.100"
@@ -333,7 +334,7 @@ export const App = () => {
             <Heading as="h2" size="md" mb={4} display="none">
               Outputs
             </Heading>
-            <VStack spacing={2}>
+            <VStack gap={2}>
               <Text alignSelf="flex-start" fontWeight="bold" mb={2}>
                 Outputs
               </Text>
@@ -347,7 +348,7 @@ export const App = () => {
             <Heading as="h2" size="md" mb={4} display="none">
               Contact
             </Heading>
-            <VStack spacing={2}>
+            <VStack gap={2}>
               <Text alignSelf="flex-start" fontWeight="bold" mb={2}>
                 Contact
               </Text>
