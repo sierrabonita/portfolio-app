@@ -1,0 +1,21 @@
+{
+  "version": "0.2",
+  "ignorePaths": [],
+  "dictionaryDefinitions": [],
+  "dictionaries": [],
+  "words": [
+    "chakra",
+    "evenodd",
+    "fastapi",
+    "iconify",
+    "labelledby",
+    "linecap",
+    "linejoin",
+    "oxlint",
+    "oxlint's",
+    "vite",
+    "xlink"
+  ],
+  "ignoreWords": [],
+  "import": []
+}
