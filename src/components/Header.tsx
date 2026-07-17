@@ -12,7 +12,7 @@ const NAV_ITEMS = [
 export const Header: FC = () => (
   <Flex as="header" justify="space-between" align="center" mb={12}>
     <Heading as="h1" size="md" fontWeight="normal">
-      Yamada Taro - Web Engineer
+      {import.meta.env.VITE_USER_NAME || 'Your Name'} - {import.meta.env.VITE_USER_TITLE || 'Web Engineer'}
     </Heading>
     <HStack as="nav" gap={6} fontSize="sm">
       {NAV_ITEMS.map((item) => (
