@@ -1,28 +1,40 @@
 import type { ComponentType, FC } from 'react';
 import type { IconBaseProps } from 'react-icons';
-import { Box, Flex, Heading, HStack, Link, SimpleGrid, Text } from '@chakra-ui/react';
-import { FaPython, FaAws, FaDocker, FaGitAlt } from 'react-icons/fa';
-import { SiGo, SiFastapi, SiGin } from 'react-icons/si';
-import { VscVscode } from 'react-icons/vsc';
+import { Box, Flex, Heading, HStack, Image, Link, SimpleGrid, Text } from '@chakra-ui/react';
+import { FaDocker } from 'react-icons/fa';
+import { BiLogoTypescript, BiLogoReact } from "react-icons/bi";
+import { RiNextjsFill } from "react-icons/ri";
+import { SiNuxt } from "react-icons/si";
+import awsS3Logo from '@/assets/aws-s3.svg';
+import awsLambdaLogo from '@/assets/aws-lambda.svg';
+import firebaseLogo from '@/assets/firebase.svg';
+import honoLogo from '@/assets/hono.svg';
+import rubyLogo from '@/assets/ruby.svg';
+import rubyOnRailsLogo from '@/assets/ruby-on-rails.svg';
+import vueLogo from '@/assets/vuejs.svg';
+
+
 
 interface Skill {
-  icon: ComponentType<IconBaseProps>;
+  icon: ComponentType<IconBaseProps> | string;
   label: string;
-  color: string;
+  color?: string;
 }
 
 const SKILLS: readonly Skill[] = [
-  { icon: FaPython, label: 'python', color: 'blue.500' },
-  { icon: SiGo, label: 'GO', color: 'blue.400' },
-  { icon: SiFastapi, label: 'FastAPI', color: 'teal.500' },
-  { icon: SiGin, label: 'Gin', color: 'blue.300' },
-  { icon: FaPython, label: 'python', color: 'blue.500' },
+  { icon: BiLogoTypescript, label: 'TypeScript', color: '#3178C6' },
+  { icon: BiLogoReact, label: 'React', color: '#61DAFB' },
+  { icon: RiNextjsFill, label: 'Next.js', color: 'black' },
+  { icon: BiLogoReact, label: 'React Native', color: '#087ea4' },
+  { icon: vueLogo, label: 'Vue.js' },
+  { icon: SiNuxt, label: 'Nuxt', color: 'green.500' },
+  { icon: honoLogo, label: 'Hono' },
+  { icon: rubyLogo, label: 'Ruby' },
+  { icon: rubyOnRailsLogo, label: 'Ruby on Rails' },
   { icon: FaDocker, label: 'docker', color: 'blue.500' },
-  { icon: FaDocker, label: 'docker', color: 'blue.500' },
-  { icon: FaAws, label: 'AWS', color: 'orange.400' },
-  { icon: FaDocker, label: 'docker', color: 'blue.500' },
-  { icon: FaGitAlt, label: 'git', color: 'red.500' },
-  { icon: VscVscode, label: 'VS Code', color: 'blue.500' },
+  { icon: awsS3Logo, label: 'Amazon S3' },
+  { icon: awsLambdaLogo, label: 'AWS Lambda' },
+  { icon: firebaseLogo, label: 'Firebase' },
 ] as const;
 
 export const SkillsSection: FC = () => (
@@ -33,8 +45,12 @@ export const SkillsSection: FC = () => (
     <SimpleGrid columns={{ base: 2, md: 4 }} rowGap={8} columnGap={4} mb={8}>
       {SKILLS.map((skill, index) => (
         <HStack key={`${skill.label}-${index}`}>
-          <Box as={skill.icon} boxSize={6} color={skill.color} />
-          <Text fontSize="sm">{skill.label}</Text>
+          {typeof skill.icon === 'string' ? (
+            <Image src={skill.icon} alt={skill.label} boxSize={12} objectFit="contain" />
+          ) : (
+            <Box as={skill.icon} boxSize={12} color={skill.color} />
+          )}
+          <Text fontSize="md">{skill.label}</Text>
         </HStack>
       ))}
     </SimpleGrid>
