@@ -1,5 +1,6 @@
 import type { FC } from 'react';
-import { ChakraProvider, defaultSystem, Box, Container } from '@chakra-ui/react';
+import { Box, Container } from '@chakra-ui/react';
+import { Provider } from '@/components/ui/provider';
 import { Header } from './components/Header';
 import { AboutSection } from './components/AboutSection';
 import { SkillsSection } from './components/SkillsSection';
@@ -9,7 +10,7 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 
 export const App: FC = () => (
-  <ChakraProvider value={defaultSystem}>
+  <Provider>
     <Box bg="#F4F3F0" color="gray.800" minH="100vh" py={8}>
       <Container maxW="container.lg" px={4}>
         <Header />
@@ -21,5 +22,5 @@ export const App: FC = () => (
         <Footer />
       </Container>
     </Box>
-  </ChakraProvider>
+  </Provider>
 );
